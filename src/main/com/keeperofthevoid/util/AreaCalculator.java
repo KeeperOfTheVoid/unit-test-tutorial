@@ -17,10 +17,9 @@ public class AreaCalculator {
      * @return Area for square (Width: 2, Height: 2)
      */
     public Integer calculateAreaForSquare() {
-        /*Shape square = new Shape(2,2);
+        Shape square = new Shape(2,2);
         // Area is 4
-        return square.getWidth() * square.getHeight();*/
-        return null;
+        return square.getWidth() * square.getHeight();
     }
 
     /**
@@ -28,10 +27,9 @@ public class AreaCalculator {
      * @return Area of triangle (Width: 2, Height: 4)
      */
     public Double calculateAreaForTriangle() {
-        /*Shape triangle = new Shape(2,4);
+        Shape triangle = new Shape(2,4);
         // Area is 4
-        return (triangle.getWidth() * triangle.getHeight())/2.0;*/
-        return null;
+        return (triangle.getWidth() * triangle.getHeight())/2.0;
     }
 
     /**
@@ -39,9 +37,8 @@ public class AreaCalculator {
      * @return Area of circle (Radius: 2)
      */
     public Double calculateAreaForCircle() {
-        /*Shape circle = new Shape(2);
+        Shape circle = new Shape(2);
         // Area is 12.566
-        return Math.PI * Math.pow((double)circle.getWidth(), 2);*/
-        return null;
+        return Math.PI * Math.pow((double)circle.getWidth(), 2);
     }
 }
