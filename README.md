@@ -8,10 +8,8 @@ some base configurations built in to make it easier to start writing useful code
 If you are using IntelliJ IDEA < 13.1, skip to the instructions below.
 
 1 Open command prompt/terminal and navigate to root folder of the project
-2 Run the command 'gradlew idea' or 'gradlew eclipse', depending on your IDE
+2 Run the command 'gradlew idea'
 3 After you see 'BUILD SUCCESSFUL' you can open the project in your IDE
-
-IntelliJ IDEA is the only IDE I use.  Therefore, I don't use Eclipse or any other IDE.  As such, I don't include any plugins for other IDEs.
 
 ## IntelliJ 13.1
 
