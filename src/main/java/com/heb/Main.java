@@ -1,4 +1,4 @@
-package com.heb.unit;
+package com.heb;
 
 import com.heb.unit.util.AreaCalculator;
 
