@@ -4,6 +4,8 @@ package com.heb.unit.model.impl;
 import com.heb.unit.model.Die;
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -18,5 +20,19 @@ public class DieImplTest {
     public void testDefaultIs1() {
         Die die = new DieImpl();
         assertThat(die.getPips()).isEqualTo(1);
+    }
+
+    @Test
+    public void testSimpleRollOf4() {
+        // Stub
+        Random random = new Random() {
+            @Override
+            public int nextInt(int bound) {
+                return 4;
+            }
+        };
+
+        Die die = new DieImpl(random);
+        assertThat(die.roll().getPips()).isEqualTo(4);
     }
 }
