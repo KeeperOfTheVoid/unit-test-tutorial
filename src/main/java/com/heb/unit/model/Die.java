@@ -7,4 +7,7 @@ package com.heb.unit.model;
  * @since 1/31/2017
  */
 public interface Die {
+    int getPips();
+
+    Die roll();
 }

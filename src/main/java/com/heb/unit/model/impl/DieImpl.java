@@ -9,4 +9,11 @@ import com.heb.unit.model.Die;
  * @since 1/31/2017
  */
 public class DieImpl implements Die {
+    public int getPips() {
+        return 1;
+    }
+
+    public Die roll() {
+        return null;
+    }
 }
