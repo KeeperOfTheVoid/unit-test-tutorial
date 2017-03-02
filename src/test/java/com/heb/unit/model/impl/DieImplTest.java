@@ -56,4 +56,13 @@ public class DieImplTest {
         Die die = new DieImpl(random);
         assertThat(die.roll().roll().getPips()).isEqualTo(4);
     }
+
+    @Test
+    public void testIntegrationRoll() {
+        Die die = new DieImpl(new Random());
+
+        for (int i = 0; i < 1000000; i++) {
+            assertThat(die.roll().getPips()).isGreaterThan(0).isLessThan(7);
+        }
+    }
 }

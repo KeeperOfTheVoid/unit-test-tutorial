@@ -11,14 +11,14 @@ import java.util.Random;
  * @since 1/31/2017
  */
 public class DieImpl implements Die {
-    private Random random;
-    private int pips;
+    private final Random random;
+    private final int pips;
 
     DieImpl(Random random) {
         this(random, 1);
     }
 
-    DieImpl(Random random, int pips) {
+    private DieImpl(Random random, int pips) {
         this.random = random;
         this.pips = pips;
     }
