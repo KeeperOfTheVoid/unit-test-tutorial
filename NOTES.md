@@ -167,6 +167,12 @@ To fix the test, in the public constructor:
 
 If random is null -> throw new IAE with appropriate message
 
+Another option is to use requireNotNull method instead of null check.
+
+```
+Objects.requireNonNull(random,"Random cannot be null");
+```
+
 Refactor Time!!
 
 1) Chain constructor

@@ -2,6 +2,7 @@ package com.heb.unit.model.impl;
 
 import com.heb.unit.model.Die;
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -19,8 +20,7 @@ public class DieImpl implements Die {
     }
 
     private DieImpl(Random random, int pips) {
-        if(random == null){ throw new NullPointerException("should not be null"); }
-
+        Objects.requireNonNull(random,"Random cannot be null");
         this.random = random;
         this.pips = pips;
     }

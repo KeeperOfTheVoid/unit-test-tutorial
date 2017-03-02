@@ -99,7 +99,7 @@ public class DieImplTest {
             new DieImpl(null);
             fail("This should not be here");
         } catch (NullPointerException ex) { // IllegalArgumentException
-            assertThat(ex).hasMessage("should not be null");
+            assertThat(ex).hasMessage("Random cannot be null");
         }
     }
 }
