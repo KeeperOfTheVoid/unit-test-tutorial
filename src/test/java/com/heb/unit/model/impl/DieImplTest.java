@@ -7,6 +7,10 @@ import org.junit.Test;
 import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 
 /**
@@ -64,5 +68,27 @@ public class DieImplTest {
         for (int i = 0; i < 1000000; i++) {
             assertThat(die.roll().getPips()).isGreaterThan(0).isLessThan(7);
         }
+    }
+
+    // Unit Test Tied to JIRA #
+    @Test
+    public void testBUG1004() {
+        // Create mock
+        Random random = createMock(Random.class);
+
+        // Reherse
+        //expect(random.nextInt(anyInt())).andReturn(4);
+        expect(random.nextInt(6)).andReturn(4);
+
+        // Rewind (EasyMock, not with mockito) - Should probably do this with EasyMock
+        replay(random);
+
+        // Run test
+        Die die = new DieImpl(random); //Subject under test
+        // assertThat(die.getPips()).isEqualTo(????) Just temp code
+        assertThat(die.roll().getPips()).isGreaterThan(0).isLessThan(7);
+
+        // Verify
+        verify(random);
     }
 }
