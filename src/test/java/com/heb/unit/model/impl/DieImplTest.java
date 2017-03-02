@@ -1,9 +1,12 @@
 package com.heb.unit.model.impl;
 
 
+import com.heb.unit.category.IntegrationTest;
+import com.heb.unit.category.UnitTest;
 import com.heb.unit.model.Die;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.ExpectedException;
 
 import java.util.Random;
@@ -24,6 +27,7 @@ import static org.easymock.EasyMock.verify;
  */
 public class DieImplTest {
     @Test
+    @Category(UnitTest.class)
     public void testDefaultIs1() {
         Random random = new Random() {
             @Override
@@ -37,6 +41,7 @@ public class DieImplTest {
     }
 
     @Test
+    @Category(UnitTest.class)
     public void testSimpleRollOf4() {
         // Stub
         Random random = new Random() {
@@ -51,6 +56,7 @@ public class DieImplTest {
     }
 
     @Test
+    @Category(UnitTest.class)
     public void testSimpleRollOf4Twice() {
         // Stub
         Random random = new Random() {
@@ -65,6 +71,7 @@ public class DieImplTest {
     }
 
     @Test
+    @Category(IntegrationTest.class)
     public void testIntegrationRoll() {
         Die die = new DieImpl(new Random());
 
@@ -75,6 +82,7 @@ public class DieImplTest {
 
     // Unit Test Tied to JIRA #
     @Test
+    @Category(UnitTest.class)
     public void testBUG1004() {
         // Create mock
         Random random = createMock(Random.class);
@@ -96,6 +104,7 @@ public class DieImplTest {
     }
 
     @Test
+    @Category(UnitTest.class)
     public void testBUG1004WithZero() {
         Random random = createMock(Random.class);
 
@@ -110,6 +119,7 @@ public class DieImplTest {
     }
 
     @Test
+    @Category(UnitTest.class)
     public void testRandomShouldNotBeNull() {
         try {
             new DieImpl(null);
@@ -123,6 +133,7 @@ public class DieImplTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
+    @Category(UnitTest.class)
     public void testThatRandomIsNotNull() throws Exception {
         thrown.expect(NullPointerException.class);
         thrown.expectMessage(DieImpl.RANDOM_IS_NULL);
