@@ -184,6 +184,8 @@ public Die(Random random) {
 ```
 2) Make error message a constant
 
+3) Make default pip a constant
+
 Everything is still green.
 
 Can also use Lambdas

@@ -12,15 +12,18 @@ import java.util.Random;
  * @since 1/31/2017
  */
 public class DieImpl implements Die {
+    private static final int DEFAULT_PIPS = 1;
+    protected static final String RANDOM_IS_NULL = "Random cannot be null";
+
     private final Random random;
     private final int pips;
 
     DieImpl(Random random) {
-        this(random, 1);
+        this(random, DEFAULT_PIPS);
     }
 
     private DieImpl(Random random, int pips) {
-        Objects.requireNonNull(random,"Random cannot be null");
+        Objects.requireNonNull(random, RANDOM_IS_NULL);
         this.random = random;
         this.pips = pips;
     }
