@@ -112,15 +112,16 @@ public void testBUG1004() {
     Random random = createMock(Random.class);
     
     // Reherse
-    expect(random.nextInt()).andReturn(2837683);
+    //expect(random.nextInt(anyInt())).andReturn(4);
+    expect(random.nextInt(6)).andReturn(4);
     
     // Rewind (EasyMock, not with mockito) - Should probably do this with EasyMock
     replay(random);
     
     // Run test
-    Die die = new Die(random); // Subject under test
-    assertThat(die.getPip()).isEqualTo(????) // Just temp code
-    assertThat(die.getPip()).isGreaterThan(0).isLessThan(7) //Actual assert
+    Die die = new DieImpl(random); //Subject under test
+    // assertThat(die.getPips()).isEqualTo(????) Just temp code
+    assertThat(die.roll().getPips()).isGreaterThan(0).isLessThan(7);
     
     // Verify
     verify(random);
