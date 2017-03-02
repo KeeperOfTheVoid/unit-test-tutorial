@@ -2,7 +2,9 @@ package com.heb.unit.model.impl;
 
 
 import com.heb.unit.model.Die;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.Random;
 
@@ -94,6 +96,20 @@ public class DieImplTest {
     }
 
     @Test
+    public void testBUG1004WithZero() {
+        Random random = createMock(Random.class);
+
+        expect(random.nextInt(6)).andReturn(0);
+
+        replay(random); //Marking mock to run
+
+        Die die = new DieImpl(random);
+        assertThat(die.roll().getPips()).isGreaterThan(0).isLessThan(7);
+
+        verify(random);
+    }
+
+    @Test
     public void testRandomShouldNotBeNull() {
         try {
             new DieImpl(null);
@@ -101,5 +117,15 @@ public class DieImplTest {
         } catch (NullPointerException ex) { // IllegalArgumentException
             assertThat(ex).hasMessage("Random cannot be null");
         }
+    }
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void testThatRandomIsNotNull() throws Exception {
+        thrown.expect(NullPointerException.class);
+        thrown.expectMessage(DieImpl.RANDOM_IS_NULL);
+        new DieImpl(null);
     }
 }

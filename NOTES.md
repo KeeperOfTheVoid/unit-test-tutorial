@@ -173,6 +173,20 @@ Another option is to use requireNotNull method instead of null check.
 Objects.requireNonNull(random,"Random cannot be null");
 ```
 
+Another way to test exceptions is through the use of Rules
+
+```
+@Rule
+public ExpectedException thrown = ExpectedException.none();
+
+@Test
+public void testThatRandomIsNotNull() throws Exception {
+    thrown.expect(NullPointerException.class);
+    thrown.expectMessage(DieImpl.RANDOM_IS_NULL);
+    new DieImpl(null);
+}
+```
+
 Refactor Time!!
 
 1) Chain constructor
