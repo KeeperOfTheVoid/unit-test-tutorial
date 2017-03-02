@@ -43,7 +43,7 @@ public class DieImplTest {
         assertThat(die.roll().getPips()).isEqualTo(4);
     }
 
-    /*@Test
+    @Test
     public void testSimpleRollOf4Twice() {
         // Stub
         Random random = new Random() {
@@ -55,5 +55,5 @@ public class DieImplTest {
 
         Die die = new DieImpl(random);
         assertThat(die.roll().roll().getPips()).isEqualTo(4);
-    }*/
+    }
 }
