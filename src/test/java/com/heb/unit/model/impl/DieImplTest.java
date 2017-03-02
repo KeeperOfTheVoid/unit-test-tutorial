@@ -18,7 +18,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DieImplTest {
     @Test
     public void testDefaultIs1() {
-        Die die = new DieImpl();
+        Random random = new Random() {
+            @Override
+            public int nextInt() {
+                return 4;
+            }
+        }; //Dummy!
+
+        Die die = new DieImpl(random);
         assertThat(die.getPips()).isEqualTo(1);
     }
 
@@ -28,11 +35,25 @@ public class DieImplTest {
         Random random = new Random() {
             @Override
             public int nextInt(int bound) {
-                return 4;
+                return 3;
             }
         };
 
         Die die = new DieImpl(random);
         assertThat(die.roll().getPips()).isEqualTo(4);
     }
+
+    /*@Test
+    public void testSimpleRollOf4Twice() {
+        // Stub
+        Random random = new Random() {
+            @Override
+            public int nextInt(int bound) {
+                return 3;
+            }
+        };
+
+        Die die = new DieImpl(random);
+        assertThat(die.roll().roll().getPips()).isEqualTo(4);
+    }*/
 }

@@ -2,7 +2,6 @@ package com.heb.unit.model.impl;
 
 import com.heb.unit.model.Die;
 
-import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -15,15 +14,11 @@ public class DieImpl implements Die {
     private Random random;
     private int pips;
 
-    DieImpl() {
-        this.pips = 1;
+    DieImpl(Random random) {
+        this(random, 1);
     }
 
-    DieImpl(Random random){
-        this(random, 4);
-    }
-
-    private DieImpl(Random random, int pips) {
+    DieImpl(Random random, int pips) {
         this.random = random;
         this.pips = pips;
     }
@@ -33,6 +28,7 @@ public class DieImpl implements Die {
     }
 
     public Die roll() {
-        return new DieImpl(random);
+        return new DieImpl(random, random.nextInt(6) + 1);
     }
 }
+
