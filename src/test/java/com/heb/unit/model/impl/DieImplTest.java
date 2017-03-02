@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.Random;
 
+import static junit.framework.TestCase.fail;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
@@ -90,5 +91,15 @@ public class DieImplTest {
 
         // Verify
         verify(random);
+    }
+
+    @Test
+    public void testRandomShouldNotBeNull() {
+        try {
+            new DieImpl(null);
+            fail("This should not be here");
+        } catch (NullPointerException ex) { // IllegalArgumentException
+            assertThat(ex).hasMessage("should not be null");
+        }
     }
 }

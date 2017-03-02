@@ -19,6 +19,8 @@ public class DieImpl implements Die {
     }
 
     private DieImpl(Random random, int pips) {
+        if(random == null){ throw new NullPointerException("should not be null"); }
+
         this.random = random;
         this.pips = pips;
     }
