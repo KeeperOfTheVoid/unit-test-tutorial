@@ -17,6 +17,8 @@ import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 /**
@@ -116,6 +118,16 @@ public class DieImplTest {
         assertThat(die.roll().getPips()).isGreaterThan(0).isLessThan(7);
 
         verify(random);
+    }
+
+    @Test
+    @Category(UnitTest.class)
+    public void testBUG1004UsingMockito() {
+        Random random = mock(Random.class);
+        when(random.nextInt(6)).thenReturn(3);
+
+        Die die = new DieImpl(random);
+        assertThat(die.roll().getPips()).isGreaterThan(0).isLessThan(7);
     }
 
     @Test

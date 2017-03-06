@@ -76,8 +76,8 @@ dependencies {
     // TDD
     testCompile "org.powermock:powermock-module-junit4:1.4.10"
     testCompile "org.easymock:easymock:3.1"
-    /*testCompile "org.powermock:powermock-api-mockito:1.4.10"
-    testCompile "org.powermock:powermock-api-easymock:1.4.10"*/
+    testCompile "org.powermock:powermock-api-mockito:1.4.10"
+    /*testCompile "org.powermock:powermock-api-easymock:1.4.10"*/
     // BDD
     //testCompile "org.spockframework:spock-core:1.0-groovy-2.3"
     //testCompile "org.spockframework:spock-spring:1.0-groovy-2.3"
