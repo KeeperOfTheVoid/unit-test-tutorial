@@ -1,6 +1,9 @@
 package com.heb.unit.model;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -17,10 +20,14 @@ public class Parser {
     }
 
     public List<CheckoutRecord> getCheckoutRecords(Stream<String> stream) {
-        return null;
+        return stream.map(this::convertStringToRecord).collect(Collectors.toList());
     }
 
     private CheckoutRecord convertStringToRecord(String record) {
-        return null;
+        String[] items = record.split(delimeter);
+        if (items.length != 3)
+            throw new IllegalArgumentException(
+                    String.format("Invalid data could not split on: %s", delimeter));
+        return new CheckoutRecord(items[0], items[1], LocalDate.parse(items[2]));
     }
 }
