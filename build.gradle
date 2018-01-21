@@ -5,7 +5,7 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'idea'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -18,20 +18,10 @@ buildscript {
         snapshotVersion = true
 
         // Previous versions
-        // Spring Security: 3.2.5.RELEASE
         // Spring: 4.1.6.RELEASE
-        // Spring Boot: 1.2.1. RELEASE
-        // Spring Data JPA: 1.7.1.RELEASE
-        // Spring WS: 2.2.1.RELEASE
-        // Hibernate: 4.3.7.Final
         groovyVersion = '2.4.5'
         tomcatVersion = '7.0.57'
-        springSecurityVersion = '4.0.3.RELEASE'
-        springVersion = '4.2.3.RELEASE'
         springBootVersion = '1.3.0.RELEASE'
-        springDataJpaVersion = '1.9.1.RELEASE'
-        springWsVersion = '2.2.2.RELEASE'
-        hibernateVersion = '5.0.5.Final'
     }
 
     repositories {
@@ -46,7 +36,7 @@ buildscript {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 repositories {
@@ -57,16 +47,6 @@ repositories {
 dependencies {
     // specify version for groovy with groovy plugin
     testCompile "org.codehaus.groovy:groovy-all:$groovyVersion"
-
-    // JDBC Drivers - Uncomment which ever ones apply to your app
-    compile "mysql:mysql-connector-java:5.1.22"
-    // h2 for testing locally
-    compile "com.h2database:h2"
-
-    // DB Connection pooling and hibernate entity manager
-    /*compile "com.zaxxer:HikariCP-java6:2.2.5"
-    compile "org.hibernate:hibernate-hikaricp:$hibernateVersion"
-    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"*/
 
     // Logging
     /* log4j */
@@ -81,6 +61,7 @@ dependencies {
     // BDD
     //testCompile "org.spockframework:spock-core:1.0-groovy-2.3"
     //testCompile "org.spockframework:spock-spring:1.0-groovy-2.3"
-    compile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.9.0'
+
 
 }
