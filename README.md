@@ -28,16 +28,10 @@ The [Gradle wrapper](gradle.org/docs/current/userguide/gradle_wrapper.html) is t
 
 You can also install [Gradle](gradle.org) on your machine for use outside of your project.
 
+## Technologies
 
 - JUnit 1.4.12 (http://junit.org/junit4/)
 - Mockito 1.4.10 (http://mockito.org/)
 - EasyMock 3.1 (http://easymock.org/)
 - AssertJ 3.6.1 (https://joel-costigliola.github.io/assertj/)
 - Powermock 3.9.0 (https://github.com/powermock/powermock)
-
-
-## Technologies
-
-- JUnit 1.4.10 (http://junit.org/junit4/)
-- Mockito 1.4.10 (http://mockito.org/)
-- EasyMock 3.1 (http://easymock.org/)
